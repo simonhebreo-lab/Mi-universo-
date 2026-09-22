@@ -208,6 +208,13 @@ window.addEventListener("error", function(e) {
     );
 });
 </script>
-<script type="module" src="./index.js"></script>
+<div id="error" style="color:red;position:fixed;top:50%;left:5%;right:5%;background:white;padding:20px;z-index:9999;font-family:Arial;"></div>
+
+<script type="module">
+import("./index.js").catch(error => {
+    document.getElementById("error").textContent =
+        "ERROR: " + error.message;
+});
+</script>
 </body>
 </html>
