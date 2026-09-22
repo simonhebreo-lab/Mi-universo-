@@ -198,7 +198,16 @@ canvas {
   }
 }
 </script>
-
+<script>
+window.addEventListener("error", function(e) {
+    document.body.insertAdjacentHTML(
+        "beforeend",
+        '<div style="position:fixed;top:50%;left:5%;right:5%;padding:20px;background:white;color:red;z-index:9999;font-family:Arial;">ERROR: ' +
+        e.message +
+        '</div>'
+    );
+});
+</script>
 <script type="module" src="./index.js"></script>
 </body>
 </html>
