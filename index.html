@@ -29,4 +29,181 @@ canvas {
     position: fixed;
     top: 22px;
     left: 0;
-    
+    width: 100%;
+    text-align: center;
+    z-index: 10;
+
+    color: #fff36b;
+    font-size: 25px;
+
+    text-shadow:
+        0 0 10px #fff000,
+        0 0 25px #ffd000,
+        0 0 50px #ffb700;
+
+    pointer-events: none;
+}
+
+#ayuda {
+    position: fixed;
+    bottom: 18px;
+    left: 50%;
+    transform: translateX(-50%);
+
+    z-index: 10;
+
+    color: #fff7a0;
+    background: rgba(0,0,0,.45);
+
+    padding: 10px 18px;
+    border-radius: 25px;
+
+    font-family: Arial, sans-serif;
+    font-size: 13px;
+
+    pointer-events: none;
+}
+
+/* CARTA */
+
+#fondoCarta {
+    position: fixed;
+    inset: 0;
+
+    display: none;
+
+    align-items: center;
+    justify-content: center;
+
+    z-index: 100;
+
+    background: rgba(0,0,0,.72);
+    backdrop-filter: blur(8px);
+}
+
+#carta {
+    width: min(88%, 430px);
+    min-height: 280px;
+
+    padding: 30px;
+
+    text-align: center;
+
+    border-radius: 18px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #fffbd0,
+            #fffef2
+        );
+
+    color: #4b3900;
+
+    box-shadow:
+        0 0 25px #ffe600,
+        0 0 80px rgba(255,220,0,.6);
+
+    animation: aparecer .5s ease;
+}
+
+#florCarta {
+    font-size: 50px;
+}
+
+#tituloCarta {
+    color: #806500;
+}
+
+#mensajeCarta {
+    min-height: 90px;
+
+    font-size: 18px;
+    line-height: 1.7;
+
+    white-space: pre-wrap;
+}
+
+#cerrar {
+    border: none;
+
+    padding: 11px 28px;
+
+    border-radius: 25px;
+
+    background: #d4ae00;
+    color: white;
+
+    cursor: pointer;
+
+    font-size: 15px;
+}
+
+@keyframes aparecer {
+    from {
+        opacity: 0;
+        transform: scale(.5);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div id="titulo">
+    ✦ mi universo para ti ✦
+</div>
+
+<div id="ayuda">
+    Arrastra para mover · Acércate · Toca una flor 🌻
+</div>
+
+
+<!-- CARTA -->
+
+<div id="fondoCarta">
+
+    <div id="carta">
+
+        <div id="florCarta">
+            🌻
+        </div>
+
+        <h2 id="tituloCarta">
+            Para ti
+        </h2>
+
+        <p id="mensajeCarta"></p>
+
+        <button id="cerrar">
+            Cerrar
+        </button>
+
+    </div>
+
+</div>
+
+
+<!-- THREE.JS -->
+
+<script type="importmap">
+{
+    "imports": {
+        "three":
+        "https://cdn.jsdelivr.net/npm/three@0.169.0/build/three.module.js",
+
+        "three/addons/":
+        "https://cdn.jsdelivr.net/npm/three@0.169.0/examples/jsm/"
+    }
+}
+</script>
+
+<script type="module" src="index.js"></script>
+
+</body>
+</html>
